@@ -21,6 +21,8 @@ class Control : public Menu
     int     speed_;
     double  distances_;
     int     getRandom();
+    Control(const Control & control);
+    Control& operator =(const Control& control);
 public:
     Control();
     ~Control() = default;
