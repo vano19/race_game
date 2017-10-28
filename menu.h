@@ -9,6 +9,8 @@ namespace race
 
 class Menu : public Coord
 {
+    Menu(const Menu& menu);
+    Menu& operator =(const Menu& menu);
 public:
     void howToPlay();
     void indicators(int times, int speed, double distances);
