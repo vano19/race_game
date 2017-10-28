@@ -9,6 +9,8 @@ namespace race
 
 class Matrix : public Control
 {   int **matrix_;
+    Matrix(const Matrix& matrix);
+    Matrix& operator =(const Matrix& matrix);
 public:
     Matrix();
     ~Matrix();
