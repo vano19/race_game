@@ -7,7 +7,6 @@ int main(int argc, char *argv[])
     race::Menu menu;
     menu.howToPlay();
     race::Control control;
-    race::Coord coord;
     thread Thread(&race::Control::controKeyboardl, &control);
     race::Matrix matrix;
     bool isDone = true;
