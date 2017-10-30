@@ -11,27 +11,27 @@ void Control::controKeyboardl()
         switch (input_)
         {
         case LEFT:
-            myPosition_ = LEFT_POSITION;
+            car_.setMyPosition(LEFT_POSITION);
             break;
         case RIGHT:
-            myPosition_ = RIGHT_POSITION;
+            car_.setMyPosition(RIGHT_POSITION);
             break;
         case GAS:
             if(delay_ < MAX_SPEED)
             {
                 --delay_;
-                speed_++;
+                car_.setSpeed(car_.getSpeed() + 1);
             }
             break;
         case STOP:
-            if(speed_ > MIN_SPEED)
+            if(car_.getSpeed() > MIN_SPEED)
             {
                 ++delay_;
-                speed_--;
+                car_.setSpeed(car_.getSpeed() - 1);
             }
             break;
         case ENTER:
-            setXY(14,4);
+            getObjectPositions().setXY(INDICATORS_POSITION_X,POSITIONS_Y -  1);
             cout<<"PAUSE  "<<endl;
             pause_ = true;
             break;
@@ -42,8 +42,8 @@ void Control::controKeyboardl()
             break;
         }
     }
-
-
+    
+    
 }
 
 
@@ -61,16 +61,6 @@ int Control::endPause()
     return 1;
 }
 
-void Control::limitSpeed()
-{
-    if((times_ % (WIEGHT - 1) == 0 ) && (positionRoad_ == (HEIGHT - 1) || positionRoad_ == -1))
-    {
-        speed_++;
-        delay_--;
-    }
-    Sleep(delay_);
-}
-
 bool Control::isEndControl() const
 {
     return whileBool_;
@@ -81,54 +71,19 @@ bool Control::hasPause() const
     return pause_;
 }
 
-int Control::getMyPosition()
-{
-    return myPosition_;
-}
-
-int Control::getPositionCar() const
-{
-    return positionCar_;
-}
-
-
 int Control::getTime() const
 {
     return times_;
 }
 
-int Control::getSpeed() const
+Car Control::getObjectCar() const
 {
-    return speed_;
+    return this->car_;
 }
 
-double Control::getDistances() const
+Road Control::getObjectRoad() const
 {
-    return distances_;
-}
-
-int Control::getPositionRoad() const
-{
-    return positionRoad_;
-}
-
-void Control::createNewCar()
-{
-    positionRoad_++;
-    if(positionRoad_ == (HEIGHT - 1))
-    {
-        positionRoad_ = - 1;
-        positionCar_ = getRandom();
-        times_++;
-        distances_ += (speed_*times_)/METER_IN_KM;
-    }
-}
-
-bool Control::hasCollition()
-{
-    if((positionRoad_ >= (HEIGHT - LEN_CAR)) && (myPosition_ == positionCar_))
-        return true;
-    return false;
+    return road_;
 }
 
 void Control::activateKeyboard(bool keyboard)
@@ -139,7 +94,7 @@ void Control::activateKeyboard(bool keyboard)
 int Control::getRandom()
 {
     int n;
-    if(rand()%2 == 0)
+    if((rand() % POSITIONS_MY_CAR) == 0)
         n = LEFT_POSITION;
     else n = RIGHT_POSITION;
     return n;
@@ -150,13 +105,35 @@ Control::Control()
     whileBool_ = true;
     pause_ = false;
     keyboard_ = true;
-    input_;
+    input_ = 0;
     delay_ = MAX_SPEED - 1;
-    myPosition_ = 0;
-    positionCar_ = 0;
-    positionRoad_ = 0;
     times_ = 0;
-    speed_ = 0;
-    distances_ = 0.0;
+    
 }
+void Control::limitSpeed()
+{
+    if((times_ % (WIEGHT - 1) == 0 ) && (road_.getPoint() == (HEIGHT - 1) || road_.getPoint() == -1))
+    {
+        car_.setSpeed(car_.getSpeed() + 1);
+        delay_--;
+    }
+    Sleep(delay_);
+}
+
+void Control::swapPoint()
+{
+    car_.setPoint(road_.getPoint());
+}
+void Control::createNewCar()
+{
+    road_.setPoint(road_.getPoint() + 1);
+    if(road_.getPoint() == (HEIGHT - 1))
+    {
+        road_.setPoint(-1);
+        car_.setPosition(getRandom());
+        times_++;
+        road_.setDistances(road_.getDistances() + (car_.getSpeed()*times_)/METER_IN_KM);
+    }
+}
+
 }
