@@ -12,11 +12,11 @@ Matrix::Matrix()
 
 Matrix::~Matrix()
 {
-
+    
     for(int i = 0; i < WIEGHT; i++)
         delete [] matrix_[i];
     delete matrix_;
-
+    
 }
 
 void Matrix::reset()
@@ -28,14 +28,14 @@ void Matrix::reset()
 
 void Matrix::drawCoord(int x, int y)
 {
-    drawPoint(1+x,0+y);
-    drawPoint(0+x,1+y);
-    drawPoint(1+x,1+y);
-    drawPoint(2+x,1+y);
-    drawPoint(1+x,2+y);
-    drawPoint(0+x,3+y);
-    drawPoint(1+x,3+y);
-    drawPoint(2+x,3+y);
+    drawPoint(POSITIONS_MY_CAR + x - 1, y);
+    drawPoint(x, POSITIONS_MY_CAR + y - 1);
+    drawPoint(POSITIONS_MY_CAR + x - 1, POSITIONS_MY_CAR + y - 1);
+    drawPoint(POSITIONS_MY_CAR + x, POSITIONS_MY_CAR + y - 1);
+    drawPoint(POSITIONS_MY_CAR + x - 1, POSITIONS_MY_CAR + y);
+    drawPoint(x, POSITIONS_MY_CAR + y + 1);
+    drawPoint(POSITIONS_MY_CAR + x - 1, POSITIONS_MY_CAR + y + 1);
+    drawPoint(POSITIONS_MY_CAR + x, POSITIONS_MY_CAR + y +1);
 }
 
 void Matrix::drawPoint(int x, int y)
@@ -48,9 +48,9 @@ void Matrix::setBorder()
 {
     for(int j = 0; j < HEIGHT; j++)
     {
-        setXY(WIEGHT - INDENT_LEFT, j + 1);
+        getObjectPositions().setXY(WIEGHT - INDENT_LEFT, j + 1);
         cout<<"|";
-        setXY(WIEGHT - 1, j + 1);
+        getObjectPositions().setXY(WIEGHT - 1, j + 1);
         for(int i = 0; i < WIEGHT; i++)
         {
             if(matrix_[i][j] == 1)
@@ -58,9 +58,8 @@ void Matrix::setBorder()
             else
                 cout<<" ";
         }
-        setXY(HEIGHT - INDENT_RIGHT,j+1);
+        getObjectPositions().setXY(HEIGHT - INDENT_RIGHT,j+1);
         cout<<"|";
     }
 }
 }
-
