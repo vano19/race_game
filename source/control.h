@@ -2,47 +2,43 @@
 #define CONTROL_H
 
 
-#include "menu.h"
+#include "car.h"
+#include "road.h"
 
 namespace race
 {
 
 class Control : public Menu
 {
+public:
+    Control();
+    ~Control() = default;
+    int     endPause();
+    int     getTime() const;
+    void    limitSpeed();
+    void    swapPoint();
+    void    controKeyboardl();
+    void    activateKeyboard(bool keyboard);
+    void    createNewCar();
+    bool    isEndControl() const;
+    bool    hasPause() const;
+    Car getObjectCar() const;
+    Road getObjectRoad() const;
+private:
+    Car car_;
+    Road road_;
     bool    whileBool_;
     bool    pause_;
     bool    keyboard_;
     int     input_;
     int     delay_;
-    int     myPosition_;
-    int     positionCar_;
-    int     positionRoad_;
     int     times_;
-    int     speed_;
-    double  distances_;
     int     getRandom();
     Control(const Control & control);
     Control& operator =(const Control& control);
-public:
-    Control();
-    ~Control() = default;
-    void    controKeyboardl();
-    int     endPause();
-    void    limitSpeed();
-    bool    isEndControl() const;
-    bool    hasPause() const;
-    int     getMyPosition();
-    int     getPositionCar() const;
-    int     getTime() const;
-    int     getSpeed() const;
-    double  getDistances() const;
-    int     getPositionRoad() const;
-    void    createNewCar();
-    bool    hasCollition();
-    void    activateKeyboard(bool keyboard);
-
-
+    
 };
 }
 
 #endif // CONTROL_H
+
