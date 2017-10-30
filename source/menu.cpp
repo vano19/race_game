@@ -5,23 +5,23 @@ namespace  race
 
 void Menu::howToPlay()
 {
-    setXY(7,2);
+    positions.setXY(POSITIONS_X,POSITIONS_Y - 3);
     cout<<"CONTROLS";
-    setXY(7,3);
+    positions.setXY(POSITIONS_X,POSITIONS_Y - 2);
     cout<<"========";
-    setXY(7,4);
+    positions.setXY(POSITIONS_X,POSITIONS_Y - 1);
     cout<<"["<<char(ARROW_LEFT)<<"]=LEFT";
-    setXY(7,5);
+    positions.setXY(POSITIONS_X,POSITIONS_Y);
     cout<<"["<<char(ARROW_RIGHT)<<"]=RIGHT";
-    setXY(7,6);
+    positions.setXY(POSITIONS_X,POSITIONS_Y + 1);
     cout<<"["<<char(SLASH)<<char(BACKSLASH)<<"]=GAS";
-    setXY(7,7);
+    positions.setXY(POSITIONS_X,POSITIONS_Y + 2);
     cout<<"["<<char(BACKSLASH)<<char(SLASH)<<"]=STOP";
-
-
+    
+    
     for (int i = WIEGHT - 1; i >= 0; i--)
     {
-        setXY(7,9);
+        positions.setXY(POSITIONS_X,POSITIONS_Y + 4);
         cout<<i;
         Sleep(WAIT);
     }
@@ -30,16 +30,21 @@ void Menu::howToPlay()
 
 void Menu::indicators(int times, int speed, double distances)
 {
-    setXY(14,4);
+    positions.setXY(INDICATORS_POSITION_X,POSITIONS_Y - 1);
     cout<<"TIME:"<<times;
-    setXY(14,5);
+    positions.setXY(INDICATORS_POSITION_X,POSITIONS_Y);
     cout<<"SPEED:"<<speed;
-    setXY(14,6);
+    positions.setXY(INDICATORS_POSITION_X,POSITIONS_Y + 1);
     cout<<"DISTANCE:"<<distances;
 }
 void Menu::gameOvere()
 {
-    setXY(14,4);
+    positions.setXY(INDICATORS_POSITION_X,POSITIONS_Y - 1);
     cout<<"GAME OVER"<<endl;
+}
+
+Positions Menu::getObjectPositions() const
+{
+    this->positions;
 }
 }
