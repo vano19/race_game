@@ -1,17 +1,20 @@
 #ifndef COORD_H
 #define COORD_H
 
-#include "race.h"
+#include "raceHelper.h"
+
 
 namespace race
 {
 
-class Coord
+class Positions
 {
-    COORD coord_;
 public:
     void setXY(int x, int y);
-    ~Coord() = default;
+    ~Positions() = default;
+private:
+    COORD coord_;
 };
 }
 #endif // COORD_H
+
