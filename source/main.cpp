@@ -2,8 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-
-
     race::Menu menu;
     menu.howToPlay();
     race::Control control;
@@ -12,14 +10,15 @@ int main(int argc, char *argv[])
     bool isDone = true;
     while(isDone)
     {
-        menu.indicators(control.getTime(),control.getSpeed(),control.getDistances());
+        menu.indicators(control.getTime(),control.getObjectCar().getSpeed(),control.getObjectRoad().getDistances());
         matrix.reset();
-        matrix.drawCoord(control.getPositionCar(),control.getPositionRoad());
-        matrix.drawCoord(control.getMyPosition(),race::HEIGHT-race::LEN_CAR);
+        matrix.drawCoord(control.getObjectCar().getPosition(),control.getObjectRoad().getPoint());
+        matrix.drawCoord(control.getObjectCar().getMyPosition(),race::HEIGHT-race::LEN_CAR);
         matrix.setBorder();
         control.createNewCar();
         control.limitSpeed();
-        if(control.hasCollition())
+        control.swapPoint();
+        if(control.getObjectCar().hasCollition())
         {
             menu.gameOvere();
             isDone = false;
@@ -30,11 +29,10 @@ int main(int argc, char *argv[])
             if (!control.endPause())
                 isDone = false;
         }
-
+        
         if(!control.isEndControl())
             isDone = false;
     }
     Thread.join();
     return 0;
 }
-
