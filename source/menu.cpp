@@ -45,6 +45,6 @@ void Menu::gameOvere()
 
 Positions Menu::getObjectPositions() const
 {
-    this->positions;
+    return this->positions;
 }
 }
