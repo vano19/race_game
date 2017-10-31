@@ -10,7 +10,7 @@ namespace race
 class Positions
 {
 public:
-    void setXY(int x, int y);
+    void setXY(const int x,const int y);
     ~Positions() = default;
 private:
     COORD coord_;
