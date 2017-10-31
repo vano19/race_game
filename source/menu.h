@@ -10,7 +10,7 @@ class Menu
 {
 public:
     void howToPlay();
-    void indicators(int times, int speed, double distances);
+    void indicators(const int times, const int speed,const double distances);
     void gameOvere();
     Positions getObjectPositions() const;
 private:
