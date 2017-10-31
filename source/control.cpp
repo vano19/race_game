@@ -86,7 +86,7 @@ Road Control::getObjectRoad() const
     return road_;
 }
 
-void Control::activateKeyboard(bool keyboard)
+void Control::activateKeyboard(const bool keyboard)
 {
     keyboard_ = keyboard;
 }
