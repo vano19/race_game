@@ -15,7 +15,7 @@ int Car::getMyPosition() const
     return myPosition_;
 }
 
-bool Car::hasCollition()
+bool Car::hasCollition() const
 {
     if((point_ >= (HEIGHT - LEN_CAR)) && (getMyPosition() == getPosition()))
         return true;
