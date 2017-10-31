@@ -12,8 +12,8 @@ public:
     Matrix();
     ~Matrix();
     void reset();
-    void drawCoord(int x, int y);
-    void drawPoint(int x, int y);
+    void drawCoord(const int x,const int y);
+    void drawPoint(const int x,const int y);
     void setBorder();
 private:
     int **matrix_;
