@@ -26,7 +26,7 @@ void Matrix::reset()
             matrix_[i][j] = 0;
 }
 
-void Matrix::drawCoord(int x, int y)
+void Matrix::drawCoord(const int x,const int y)
 {
     drawPoint(POSITIONS_MY_CAR + x - 1, y);
     drawPoint(x, POSITIONS_MY_CAR + y - 1);
@@ -38,7 +38,7 @@ void Matrix::drawCoord(int x, int y)
     drawPoint(POSITIONS_MY_CAR + x, POSITIONS_MY_CAR + y +1);
 }
 
-void Matrix::drawPoint(int x, int y)
+void Matrix::drawPoint(const int x,const int y)
 {
     if((x >= 0 && x < WIEGHT) && (y >= 0 && y < HEIGHT))
         matrix_[x][y] = 1;
