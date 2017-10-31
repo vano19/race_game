@@ -11,7 +11,6 @@ class Road
 public:
     Road();
     int     getPoint() const;
-    bool    hasCollition();
     double  getDistances() const;
     void    setDistances(const double distances);
     void    setPoint(const int point);
