@@ -4,7 +4,7 @@
 namespace race
 {
 
-void Positions::setXY(int x, int y)
+void Positions::setXY(const int x,const int y)
 {
     
     coord_.X = x;
