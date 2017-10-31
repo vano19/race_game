@@ -18,7 +18,7 @@ public:
     void    limitSpeed();
     void    swapPoint();
     void    controKeyboardl();
-    void    activateKeyboard(bool keyboard);
+    void    activateKeyboard(const bool keyboard);
     void    createNewCar();
     bool    isEndControl() const;
     bool    hasPause() const;
