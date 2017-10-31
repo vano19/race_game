@@ -28,7 +28,7 @@ void Menu::howToPlay()
     system("cls");
 }
 
-void Menu::indicators(int times, int speed, double distances)
+void Menu::indicators(const int times,const int speed,const double distances)
 {
     positions.setXY(INDICATORS_POSITION_X,POSITIONS_Y - 1);
     cout<<"TIME:"<<times;
