@@ -23,7 +23,7 @@ public:
     int     getSpeed() const;
     int     getMyPosition() const;
     int     getPosition() const;
-    bool    hasCollition();
+    bool    hasCollition() const;
 private:
     int     position_;
     int     myPosition_;
