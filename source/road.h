@@ -14,6 +14,10 @@ public:
     double  getDistances() const;
     void    setDistances(const double distances);
     void    setPoint(const int point);
+    void operator ++();
+    Road& operator =(const Road& road) = delete;
+    Road(const Road& road) = delete;
+    Road(Road &&road) = default;
 private:
     int     point_;
     double  distances_;
