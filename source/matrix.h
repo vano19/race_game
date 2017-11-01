@@ -1,25 +1,24 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#include "control.h"
+#include "game_field.h"
 
 namespace race
 {
 
-class Matrix : public Control
+class Matrix : public Menu
 {
 public:
     Matrix();
-    ~Matrix();
+    ~Matrix() = default ;
     void reset();
     void drawCoord(const int x,const int y);
     void drawPoint(const int x,const int y);
     void setBorder();
+    Matrix(const Matrix& matrix) = delete;
+    Matrix& operator =(const Matrix& matrix) = delete;
 private:
-    int **matrix_;
-    Matrix(const Matrix& matrix);
-    Matrix& operator =(const Matrix& matrix);
-    
+    vector<vector<int>> matrix_; 
 };
 }
 #endif // MATRIX_H
