@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <windows.h>
 #include <thread>
+#include <vector>
 
 using namespace std;
 
@@ -38,6 +39,11 @@ const int       POSITIONS_X = 7;
 const int       POSITIONS_Y = 5;
 const int       INDICATORS_POSITION_X = 14;
 const int       POSITIONS_MY_CAR = 2;
+const int       AVERAGE_SPEED = 40;
+const int       DIFFCULT_SPEED = 20;
+const int       LEVEL1 = 1;
+const int       LEVEL2 = 2;
+const int       LEVEL3 = 3;
 }
 
 #endif
