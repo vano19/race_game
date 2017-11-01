@@ -3,20 +3,8 @@
 namespace race
 {
 
-Matrix::Matrix()
+Matrix::Matrix(): matrix_(WIEGHT,vector<int>(HEIGHT))
 {
-    matrix_ = new int* [WIEGHT];
-    for (int i = 0; i < WIEGHT; i++)
-        matrix_[i] = new int [HEIGHT];
-}
-
-Matrix::~Matrix()
-{
-    
-    for(int i = 0; i < WIEGHT; i++)
-        delete [] matrix_[i];
-    delete matrix_;
-    
 }
 
 void Matrix::reset()
