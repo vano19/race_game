@@ -2,12 +2,8 @@
 namespace race
 {
 
-Car::Car()
+Car::Car():position_(0),myPosition_(0),speed_(0),point_(0)
 {
-    myPosition_ = 0;
-    position_ = 0;
-    speed_ = 0;
-    point_ = 0;
 }
 
 int Car::getMyPosition() const
@@ -17,9 +13,20 @@ int Car::getMyPosition() const
 
 bool Car::hasCollition() const
 {
+    bool isCollition = false;
     if((point_ >= (HEIGHT - LEN_CAR)) && (getMyPosition() == getPosition()))
-        return true;
-    return false;
+        isCollition = true;
+    return isCollition;
+}
+
+void Car::operator ++()
+{
+    ++speed_;
+}
+
+void Car::operator --()
+{
+    --speed_;
 }
 
 int Car::getSpeed() const
