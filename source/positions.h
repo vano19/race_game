@@ -11,7 +11,11 @@ class Positions
 {
 public:
     void setXY(const int x,const int y);
+    Positions() = default;
     ~Positions() = default;
+    Positions& operator =(const Positions& positions) = delete;
+    Positions(const Positions& positions) = delete;
+    Positions( Positions&& positions) = default;
 private:
     COORD coord_;
 };
