@@ -2,10 +2,8 @@
 namespace race
 {
 
-Road::Road()
+Road::Road():point_(0),distances_(0.0)
 {
-    point_ = 0;
-    distances_ = 0.0;
 }
 
 double Road::getDistances() const
@@ -21,6 +19,11 @@ void Road::setDistances(const double distances)
 void Road::setPoint(const int point)
 {
     point_ = point;
+}
+
+void Road::operator ++()
+{
+    ++point_;
 }
 
 int Road::getPoint() const
