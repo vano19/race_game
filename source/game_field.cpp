@@ -18,6 +18,11 @@ Delay GameField::objectDelay() const
     return move(*delay_);
 }
 
+Level GameField::objectLevel() const
+{
+    return move(*level_);
+}
+
 void GameField::limitSpeed()
 {
     if((delay_->getTime() % (WIEGHT - 1) == 0 ) && (road_->getPoint() == (HEIGHT - 1)
@@ -39,8 +44,8 @@ void GameField::createNewCar()
         road_->setDistances(road_->getDistances() + (car_->getSpeed()*delay_->getTime())/METER_IN_KM);
     }
 }
-GameField::GameField():car_(new Car), road_(new Road), delay_(new Delay),
-    whileBool_(true),pause_(false),keyboard_(true),input_(0)
+GameField::GameField():whileBool_(true),pause_(false),keyboard_(true),input_(0),
+    level_(new Level), car_(new Car), road_(new Road), delay_(new Delay)
 {
 }
 
@@ -127,6 +132,7 @@ GameField::~GameField()
     car_.get_deleter();
     road_.get_deleter();
     delay_.get_deleter();
+    level_.get_deleter();
 }
 
 int GameField::getRandom()
@@ -142,5 +148,4 @@ void GameField::swapPoint()
 {
     car_->setPoint(road_->getPoint());
 }
-
 }
