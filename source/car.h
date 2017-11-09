@@ -1,7 +1,12 @@
 #ifndef CAR_H
 #define CAR_H
 
+
+
+
+
 #include "road.h"
+
 
 namespace race
 {
@@ -16,8 +21,8 @@ public:
     void       setSpeed(const int speed );
     void       setPoint(const int point);
     int        getSpeed() const;
-    inline int getMyPosition() const;
-    inline int getPosition() const;
+    int        getMyPosition() const;
+    int        getPosition() const;
     bool       hasCollition() const;
     void operator ++();
     void operator --();
@@ -29,7 +34,7 @@ private:
     int     myPosition_;
     int     speed_;
     int     point_;
-    
+
 };
 }
 
