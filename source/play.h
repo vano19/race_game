@@ -1,13 +1,13 @@
 #ifndef INSPECTION_H
 #define INSPECTION_H
 
-#include "level.h"
+#include "game_field.h"
 #include "matrix.h"
 
 namespace race
 {
 
-class Play final: public Level,
+class Play final: public GameField,
                   public Matrix
 {
 public:
@@ -15,6 +15,7 @@ public:
     void start();
     Play(const Play& play) = delete;
     Play& operator =(const Play& play) = delete;
+    virtual ~Play() = default;
 private:
     bool isDone_;
 };
