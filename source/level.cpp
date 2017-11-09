@@ -3,14 +3,14 @@
 namespace race
 {
 
-void Level::set()
+Level::Level():level_number_(0)
 {
-    cin>>level_;
+}
+
+int Level::set()
+{
+    cin>>level_number_;
     system("cls");
-    GameField::conditions(level_);
+    return level_number_;
 }
-
 }
-
-
-
