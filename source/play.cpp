@@ -13,7 +13,7 @@ void Play::start()
     howToPlay();
     expectation();
     outLevel();
-    set();
+    conditions(objectLevel().set());
     expectation();
     while(isDone_)
     {
@@ -48,6 +48,4 @@ void Play::start()
         }
     }
 }
-
-
 }
