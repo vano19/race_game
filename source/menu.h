@@ -19,6 +19,7 @@ public:
     Menu();
     Menu& operator =(const Menu& menu) = delete;
     Menu(const Menu& menu) = delete;
+    virtual ~Menu() = default;
 private:
     unique_ptr<Positions> positions_;
 };
