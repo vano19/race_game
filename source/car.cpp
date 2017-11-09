@@ -59,3 +59,4 @@ void Car::setPoint(const int point)
     point_ = point;
 }
 }
+
