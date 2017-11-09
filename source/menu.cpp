@@ -48,7 +48,7 @@ void Menu::outLevel()
     cout<<"LEVEL [DIFFCULT] = 3";
     positions_->setXY(POSITIONS_X,POSITIONS_Y + 2);
     cout<<"LEVEL : ";
-    
+
 }
 
 void Menu::outPause()
@@ -76,4 +76,3 @@ Menu::Menu(): positions_(new Positions)
 {
 }
 }
-
