@@ -10,7 +10,7 @@ class Matrix : public Menu
 {
 public:
     Matrix();
-    ~Matrix() = default ;
+    virtual ~Matrix() = default ;
     void reset();
     void drawCoord(const int x,const int y);
     void drawPoint(const int x,const int y);
@@ -18,7 +18,8 @@ public:
     Matrix(const Matrix& matrix) = delete;
     Matrix& operator =(const Matrix& matrix) = delete;
 private:
-    vector<vector<int>> matrix_; 
+    vector<vector<int>> matrix_;
 };
 }
 #endif // MATRIX_H
+
