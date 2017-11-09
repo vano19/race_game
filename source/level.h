@@ -2,18 +2,22 @@
 #define LEVEL_H
 
 
-#include "game_field.h"
+#include "delay.h"
 
 namespace race
 {
 
-class Level: public GameField
+class Level
 {
 public:
+    Level();
     ~Level() = default;
-    void set();
+    int set();
+    Level& operator =(const Level& level) = delete;
+    Level(const Level& level) = delete;
+    Level(Level &&level) = default;
 private:
-    int level_;
+    int level_number_;
 };
 }
 #endif // LEVEL_H
